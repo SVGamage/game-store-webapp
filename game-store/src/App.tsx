@@ -1,7 +1,11 @@
-import React from "react";
+import { Button, ButtonGroup } from "@chakra-ui/react";
 
 function App() {
-  return <div>Helloww..</div>;
+  return (
+    <Button colorScheme="teal" variant="outline">
+      Button
+    </Button>
+  );
 }
 
 export default App;
