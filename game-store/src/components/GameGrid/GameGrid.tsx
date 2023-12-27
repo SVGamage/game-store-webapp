@@ -3,7 +3,7 @@ import useFetchGames from "../../hooks/useFetchGames";
 import GameCard from "../GameCard/GameCard";
 import CardSkeleton from "../CardSkeleton/CardSkeleton";
 const GameGrid = () => {
-  const { games, error, isLoading } = useFetchGames();
+  const { data, error, isLoading } = useFetchGames();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
@@ -16,7 +16,7 @@ const GameGrid = () => {
       >
         {isLoading &&
           skeletons.map((skeleton) => <CardSkeleton key={skeleton} />)}
-        {games.map((game) => (
+        {data.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
       </SimpleGrid>
