@@ -4,8 +4,9 @@ import GenreSkeleton from "../GenreSkeleton/GenreSkeleton";
 
 interface Props {
   onSelectedGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
-const GenreList = ({ onSelectedGenre }: Props) => {
+const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
   const { data, isLoading } = useFetchGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -26,6 +27,8 @@ const GenreList = ({ onSelectedGenre }: Props) => {
               borderRadius={8}
             />
             <Button
+              colorScheme={genre.id === selectedGenre?.id ? "blue" : ""}
+              fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
               onClick={() => onSelectedGenre(genre)}
               variant="link"
               fontSize="lg"
